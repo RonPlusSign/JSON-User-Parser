@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>JSON test</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <!--    TITLE   -->
+        <br>
+        <h1>JSON parser</h1>
+        <hr>
+
+        <!--    LOGIN   -->
+        <h3>Aggiunta di un utente</h3>
+        <div class="table">
+            <div class="tr">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputNome">Nome</label>
+                            <input type="text" class="form-control" id="inputNome" placeholder="Nome" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputCognome">Cognome</label>
+                            <input type="text" class="form-control" id="inputCognome" placeholder="Cognome" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="mail@example.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputIndirizzo">Indirizzo</label>
+                        <input type="text" class="form-control" id="inputIndirizzo" placeholder="Via dei viali, 27"
+                            required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCitta">Città</label>
+                            <input type="text" class="form-control" id="inputCitta" placeholder="Firenze" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputStato">Stato</label>
+                            <select id="inputStato" class="form-control" required>
+                                <option selected>Scegli...</option>
+                                <option>Italy</option>
+                                <option>USA</option>
+                                <option>UK</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputCAP">CAP</label>
+                            <input type="text" class="form-control" id="inputCAP" placeholder="123456" required>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="createNewUser()">Aggiungi</button>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        <!--    LISTA UTENTI    -->
+        <h3>Lista utenti</h3>
+
+        <input type="file" class="btn btn-success" accept="application/json" value="Importa i dati (JSON)" id="JSONinput">
+        <input type="button" class="btn btn-warning" value="Esporta i dati (JSON)" id="JSONoutput" onclick="exportJsonFile()">
+
+        <div class="table" id="usersTable">
+            <div class="tr">
+                <div class="user">
+                    <p>
+                        <span class="nome">Nome</span>
+                    <span class="cognome">Cognome</span>
+                    </p>
+
+                    <p class="email">mail@esempio.it</p>
+
+                    <p class="location">
+                        <span class="indirizzo">Via dei viali, 27</span>,
+                        <span class="citta">Firenze</span>,
+                        <span class="stato">Italia</span>, (<span class="cap">123456</span>)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</body>
+
+</html>

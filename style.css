@@ -1,0 +1,21 @@
+.user {
+    margin: 5px;
+    padding: 15px 20px 5px 70px;
+    background-color: rgb(206, 180, 231);
+    border-radius: 10px;
+
+    font-size: 1.05em;
+}
+
+.user .nome{
+    font-weight: bold;
+}
+
+.user .cognome{
+    font-weight: bold;
+}
+
+.btn-success, .btn-warning{
+    margin: 0.5em 0.4em;
+    min-height: 2.8em;
+}
