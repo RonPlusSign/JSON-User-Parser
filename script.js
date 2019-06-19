@@ -1,60 +1,31 @@
-
 /*  // USER FORMAT //
 <div class="user">
     <p>
-        <span class="nome">Nome</span>
-        <span class="cognome">Cognome</span>
+        <span class="name">Name</span>
+        <span class="surname">Surname</span>
     </p>
 
-    <p class="email">mail@esempio.it</p>
+    <p class="email">mail@example.com</p>
 
     <p class="location">
-        <span class="indirizzo">Via dei viali, 27</span>,
-        <span class="citta">Firenze</span>,
-        <span class="stato">Italia</span>, (<span class="cap">123456</span>)
+        <span class="address">Example address, 123</span>,
+        <span class="city">City</span>,
+        <span class="country">Country</span>, (<span class="postal_code">1234</span>)
     </p>
 </div>
 */
 
-var users_list = [
-    {
-        nome: "1",
-        cognome: "1",
-        email: "1@esempio.it",
-        indirizzo: "Via dei viali, 27",
-        citta: "Firenze",
-        stato: "Italia",
-        CAP: "123456"
-    },
-    {
-        nome: "2",
-        cognome: "2",
-        email: "2@esempio.it",
-        indirizzo: "Via dei viali, 27",
-        citta: "Firenze",
-        stato: "Italia",
-        CAP: "123456"
-    },
-    {
-        nome: "3",
-        cognome: "3",
-        email: "3@3.it",
-        indirizzo: "Via dei viali, 27",
-        citta: "Firenze",
-        stato: "Italia",
-        CAP: "123456"
-    }
-]
+var users_list = []
 
-function createNewUser() {
+function createUserFromForm() {
     var user = {
-        nome: $("#inputNome").val(),
-        cognome: $("#inputCognome").val(),
+        name: $("#inputName").val(),
+        surname: $("#inputSurname").val(),
         email: $("#inputEmail").val(),
-        indirizzo: $("#inputIndirizzo").val(),
-        citta: $("#inputCitta").val(),
-        stato: $("#inputStato").val(),
-        CAP: $("#inputCAP").val()
+        address: $("#inputAddress").val(),
+        city: $("#inputCity").val(),
+        state: $("#inputCountry").val(),
+        postal_code: $("#inputPostalCode").val()
     }
 
     cleanForm();
@@ -65,13 +36,13 @@ function createNewUser() {
 
 //function used to clear all the data in the form fields
 function cleanForm() {
-    $("#inputNome").val("");
-    $("#inputCognome").val("");
+    $("#inputName").val("");
+    $("#inputSurname").val("");
     $("#inputEmail").val("");
-    $("#inputIndirizzo").val("");
-    $("#inputCitta").val("");
-    $("#inputStato").val("");
-    $("#inputCAP").val("");
+    $("#inputAddress").val("");
+    $("#inputCity").val("");
+    $("#inputState").val("");
+    $("#inputPostalCode").val("");
 }
 
 var inputButton = document.getElementById("JSONinput");
@@ -83,30 +54,27 @@ inputButton.addEventListener('change', function (event) {
     reader.onload = function (event) {
         var new_users = JSON.parse(reader.result);
 
-        for(var i = 0; i < new_users.length; i++){
-            createNewUser(JSON.parse(new_users[i]));
+        for (user of new_users) {
+            users_list.push(user);
+            appendUserToList(user);
         }
     }
 });
 
-function fromStringToObject(string){
-
-}
-
 function appendUserToList(user) {
     $("#usersTable").append('<div class="user">'
-        + '<p><span class="nome">' + user.nome
-        + '</span> <span class="cognome">' + user.cognome
+        + '<p><span class="name">' + user.name
+        + '</span> <span class="surname">' + user.surname
         + '</span></p><p class="email">' + user.email
-        + '</p><p class="location"><span class="indirizzo">' + user.indirizzo
-        + '</span>, <span class="citta">' + user.citta
-        + '</span>, <span class="stato">' + user.stato
-        + '</span>, (<span class="cap">' + user.CAP
+        + '</p><p class="location"><span class="address">' + user.address
+        + '</span>, <span class="city">' + user.city
+        + '</span>, <span class="country">' + user.state
+        + '</span>, (<span class="postal_code">' + user.postal_code
         + '</span>)</p></div>');
 }
 
 function exportJsonFile() {
-    var filename = 'download-file.json';
+    var filename = 'users-list.json';
     var element = document.createElement('a');
     element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(users_list)));
     element.setAttribute('download', filename);

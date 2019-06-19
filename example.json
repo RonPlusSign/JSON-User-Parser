@@ -1,0 +1,29 @@
+[
+    {
+        "name": "John",
+        "surname": "Smith",
+        "email": "mail@example.com",
+        "address": "Address Street, 27",
+        "city": "Rome",
+        "state": "Italy",
+        "postal_code": "123456"
+    },
+    {
+        "name": "Bob",
+        "surname": "Black",
+        "email": "bob@mail.net",
+        "address": "Bob's Street, 10",
+        "city": "New York",
+        "state": "USA",
+        "postal_code": "102030"
+    },
+    {
+        "name": "Milly",
+        "surname": "Susan",
+        "email": "milly@susanemail.com",
+        "address": "Example Road, 987",
+        "city": "London",
+        "state": "UK",
+        "postal_code": "5432"
+    }
+]

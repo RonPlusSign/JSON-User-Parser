@@ -7,13 +7,10 @@
     font-size: 1.05em;
 }
 
-.user .nome{
+.user .name, .user .surname{
     font-weight: bold;
 }
 
-.user .cognome{
-    font-weight: bold;
-}
 
 .btn-success, .btn-warning{
     margin: 0.5em 0.4em;
